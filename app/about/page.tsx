@@ -97,13 +97,18 @@ export default function AboutPage() {
 
         </div>
 
-        {/* FOOTER */}
-        <footer style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, padding: '24px 40px', fontSize: 13, color: t.muted, borderTop: `1px solid ${t.subtle}` }}>
-          <span>© 2026 BuyIQ.app — Smart shopping, powered by data.</span>
-          <div style={{ display: 'flex', gap: 24 }}>
-            {[['About', '/about'], ['Privacy', '/privacy'], ['Contact', '/contact']].map(([l, h]) => (
-              <Link key={l} href={h} style={{ color: t.muted, textDecoration: 'none' }}>{l}</Link>
-            ))}
+        {/* ── FOOTER ── */}
+        <footer style={{ padding: '24px 40px', borderTop: `1px solid ${t.subtle}` }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+            <div>
+              <div style={{ fontSize: 13, color: t.muted }}>© 2026 BuyIQ.app — Smart shopping, powered by data.</div>
+              <div style={{ fontSize: 11, color: t.muted, marginTop: 4, opacity: 0.8 }}>As an Amazon Associate I earn from qualifying purchases.</div>
+            </div>
+            <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+              {[['About', '/about'], ['Privacy', '/privacy'], ['Contact', '/contact']].map(([l, h]) => (
+                <Link key={l} href={h} style={{ fontSize: 13, color: t.muted, textDecoration: 'none' }}>{l}</Link>
+              ))}
+            </div>
           </div>
         </footer>
 
