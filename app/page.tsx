@@ -6,14 +6,12 @@ import Link from 'next/link'
 
 // ══════════════════════════════════════════════════════════════════
 // ✏️  FEATURED REVIEWS — add/remove products here
-//     The one with featured: true shows on the homepage today
-//     Change featured: true to whichever product you want to show
+//     Set featured: true on whichever product you want shown today
 // ══════════════════════════════════════════════════════════════════
 const FEATURED_REVIEWS = [
   {
-    featured:    true,           // ← set this to true for today's pick
+    featured:    true,
     slug:        'airpods3',
-    emoji:       '🎧',
     image:       'https://m.media-amazon.com/images/I/61solmQSSlL._AC_SL1500_.jpg',
     name:        'Apple AirPods Pro 3',
     tagline:     'Live Translation, Heart Rate Sensor, FDA Hearing Aid. Is it worth $199?',
@@ -26,7 +24,6 @@ const FEATURED_REVIEWS = [
   {
     featured:    false,
     slug:        'airpods4',
-    emoji:       '🎧',
     image:       'https://m.media-amazon.com/images/I/61iBtxCUabL._AC_SL1500_.jpg',
     name:        'Apple AirPods 4 with ANC',
     tagline:     'First-ever ANC on standard AirPods. Is $155 a good deal?',
@@ -36,12 +33,11 @@ const FEATURED_REVIEWS = [
     price:       '$154.99',
     badge:       "Amazon's Choice",
   },
-  // ✏️ ADD MORE PRODUCTS HERE as you publish reviews
+  // ✏️ ADD MORE PRODUCTS HERE as you publish reviews:
   // {
   //   featured:  false,
   //   slug:      'samsung-tv',
-  //   emoji:     '📺',
-  //   image:     'https://m.media-amazon.com/...',
+  //   image:     'https://m.media-amazon.com/images/...',
   //   name:      'Samsung 65" QLED TV',
   //   tagline:   'Is this the best TV under $1000?',
   //   rating:    '★★★★½',
@@ -53,7 +49,7 @@ const FEATURED_REVIEWS = [
 ]
 
 // ══════════════════════════════════════════════════════════════════
-// ✏️  TRENDING SEARCHES
+// ✏️  TRENDING SEARCHES — update these as trends change
 // ══════════════════════════════════════════════════════════════════
 const TRENDING = [
   { label: 'Noise cancelling headphones', icon: '🎧', q: 'best noise cancelling headphones' },
@@ -81,7 +77,7 @@ const THEMES = [
     bg: '#f5f5f7', bodyBg: '#f5f5f7', surface: '#ffffff', border: 'rgba(0,0,0,0.08)',
     text: '#1a1a1a', muted: 'rgba(0,0,0,0.5)', subtle: 'rgba(0,0,0,0.06)',
     navBg: 'transparent', inputBg: 'rgba(0,0,0,0.03)',
-    footerBorder: 'rgba(0,0,0,0.07)', footerText: 'rgba(0,0,0,0.35)',
+    footerBorder: 'rgba(0,0,0,0.07)', footerText: 'rgba(0,0,0,0.4)',
   },
   {
     id: 'navy', label: '🌊', title: 'Navy',
@@ -100,18 +96,22 @@ const THEMES = [
   },
 ]
 
+// ── FOOTER LINKS ──────────────────────────────────────────────────
+const FOOTER_LINKS = [
+  { label: 'About',   href: '/about' },
+  { label: 'Privacy', href: '/privacy' },
+  { label: 'Contact', href: '/contact' },
+]
+
 // ── COMPONENT ─────────────────────────────────────────────────────
 export default function HomePage() {
-  const [query, setQuery]   = useState('')
+  const [query, setQuery]     = useState('')
   const [themeId, setThemeId] = useState('dark')
   const router = useRouter()
 
-  const t = THEMES.find(x => x.id === themeId) || THEMES[0]
-
-  // Get today's featured product (first with featured: true, fallback to first)
+  const t        = THEMES.find(x => x.id === themeId) || THEMES[0]
   const featured = FEATURED_REVIEWS.find(r => r.featured) || FEATURED_REVIEWS[0]
-  // Other reviews for the "also reviewed" strip
-  const others = FEATURED_REVIEWS.filter(r => !r.featured)
+  const others   = FEATURED_REVIEWS.filter(r => !r.featured)
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -129,15 +129,12 @@ export default function HomePage() {
 
         {/* ── NAV ── */}
         <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 40px', background: t.navBg }}>
-          {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: 10 }}>
             <img src="/images/logo.svg" alt="BuyIQ" style={{ width: 52, height: 52, objectFit: 'contain' }} />
             <span style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 28, fontWeight: 700, color: t.text, letterSpacing: '0.03em' }}>
               Buy<span style={{ color: '#f5a623' }}>IQ</span>
             </span>
           </Link>
-
-          {/* Theme switcher */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 10, padding: '5px 8px' }}>
             <span style={{ fontSize: 12, color: t.muted, marginRight: 4 }}>Theme:</span>
             {THEMES.map(theme => (
@@ -158,17 +155,10 @@ export default function HomePage() {
             Smart reviews powered by real Amazon data & price history
           </p>
 
-          {/* Search box */}
+          {/* Search */}
           <form onSubmit={handleSearch} style={{ width: '100%', maxWidth: 540 }}>
             <div style={{ display: 'flex', alignItems: 'center', background: themeId === 'light' ? '#fff' : 'rgba(5,15,35,0.88)', border: `1.5px solid ${themeId === 'light' ? 'rgba(0,150,200,0.4)' : 'rgba(0,210,255,0.6)'}`, borderRadius: 12, padding: '4px 4px 4px 18px', boxShadow: '0 0 35px rgba(0,200,255,0.12)' }}>
-              <input
-                type="text"
-                value={query}
-                onChange={e => setQuery(e.target.value)}
-                placeholder="Best headphones under $300…"
-                autoFocus
-                style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontFamily: 'Open Sans, sans-serif', fontSize: 16, color: t.text, padding: '13px 10px 13px 0' }}
-              />
+              <input type="text" value={query} onChange={e => setQuery(e.target.value)} placeholder="Best headphones under $300…" autoFocus style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontFamily: 'Open Sans, sans-serif', fontSize: 16, color: t.text, padding: '13px 10px 13px 0' }} />
               <button type="submit" style={{ background: 'linear-gradient(135deg, #00c8e0, #0096b0)', border: 'none', cursor: 'pointer', width: 50, height: 50, borderRadius: 9, flexShrink: 0, fontSize: 22, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 18px rgba(0,180,220,0.4)' }}>
                 🔍
               </button>
@@ -185,53 +175,42 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* ── TODAY'S FEATURED REVIEW ── */}
+          {/* ── FEATURED REVIEW ── */}
           <div style={{ width: '100%', maxWidth: 680 }}>
             <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#f5a623', marginBottom: 16 }}>
               ⚡ Today&apos;s Featured Review
             </p>
 
             <Link href={`/product/${featured.slug}`} style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 20, background: t.surface, border: '1px solid rgba(245,166,35,0.25)', borderRadius: 18, padding: '22px 28px', cursor: 'pointer', textAlign: 'left', transition: 'border-color 0.2s' }}>
-
-                {/* Product image */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 20, background: t.surface, border: '1px solid rgba(245,166,35,0.25)', borderRadius: 18, padding: '22px 28px', cursor: 'pointer', textAlign: 'left' as const }}>
                 <div style={{ width: 80, height: 80, flexShrink: 0, borderRadius: 14, overflow: 'hidden', background: t.inputBg, border: `1px solid ${t.border}` }}>
                   <img src={featured.image} alt={featured.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
-
                 <div style={{ flex: 1 }}>
-                  {/* Badge */}
                   {featured.badge && (
                     <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'rgba(0,120,200,0.15)', border: '1px solid rgba(0,120,200,0.25)', borderRadius: 5, padding: '2px 8px', fontSize: 11, color: '#5b9bd5', fontWeight: 700, marginBottom: 6 }}>
                       ✦ {featured.badge}
                     </div>
                   )}
-                  <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 20, fontWeight: 700, color: t.text, marginBottom: 4 }}>
-                    {featured.name}
-                  </div>
-                  <div style={{ fontSize: 13, color: t.muted, marginBottom: 10 }}>
-                    {featured.tagline}
-                  </div>
+                  <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 20, fontWeight: 700, color: t.text, marginBottom: 4 }}>{featured.name}</div>
+                  <div style={{ fontSize: 13, color: t.muted, marginBottom: 10 }}>{featured.tagline}</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
                     <span style={{ color: '#f5a623', fontSize: 13 }}>{featured.rating}</span>
                     <span style={{ fontSize: 12, color: t.muted }}>{featured.reviews}</span>
                     <span style={{ background: 'rgba(245,166,35,0.15)', border: '1px solid rgba(245,166,35,0.3)', color: '#f5a623', fontSize: 12, fontWeight: 700, padding: '2px 10px', borderRadius: 6 }}>
                       BuyIQ Score: {featured.score}
                     </span>
-                    <span style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 16, fontWeight: 700, color: t.text }}>
-                      {featured.price}
-                    </span>
+                    <span style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 16, fontWeight: 700, color: t.text }}>{featured.price}</span>
                   </div>
                 </div>
-
                 <div style={{ color: t.muted, fontSize: 22, flexShrink: 0 }}>→</div>
               </div>
             </Link>
 
-            {/* ── OTHER REVIEWS STRIP ── */}
+            {/* Other reviews */}
             {others.length > 0 && (
               <div style={{ marginTop: 16 }}>
-                <p style={{ fontSize: 12, color: t.muted, marginBottom: 10, textAlign: 'left' }}>Also reviewed:</p>
+                <p style={{ fontSize: 12, color: t.muted, marginBottom: 10, textAlign: 'left' as const }}>Also reviewed:</p>
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                   {others.map(r => (
                     <Link key={r.slug} href={`/product/${r.slug}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, background: t.surface, border: `1px solid ${t.border}`, borderRadius: 12, padding: '12px 16px', flex: 1, minWidth: 200 }}>
@@ -248,10 +227,11 @@ export default function HomePage() {
               </div>
             )}
 
-            {/* ── COMPARISON LINK ── */}
+            {/* Comparison link */}
             <div style={{ marginTop: 16 }}>
               <Link href="/compare/airpods-pro-3-vs-airpods-4" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 12, padding: '14px 20px', textDecoration: 'none', color: t.muted, fontSize: 14 }}>
-                ⚔️ <span>Compare AirPods Pro 3 vs AirPods 4</span> <span style={{ marginLeft: 'auto', color: t.muted }}>→</span>
+                ⚔️ <span>Compare AirPods Pro 3 vs AirPods 4</span>
+                <span style={{ marginLeft: 'auto' }}>→</span>
               </Link>
             </div>
           </div>
@@ -259,12 +239,21 @@ export default function HomePage() {
         </div>
 
         {/* ── FOOTER ── */}
-        <footer style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, padding: '24px 40px', fontSize: 13, color: t.footerText, borderTop: `1px solid ${t.footerBorder}` }}>
-          <span>© 2026 BuyIQ.app — Smart shopping, powered by data.</span>
-          <div style={{ display: 'flex', gap: 24 }}>
-            {['About', 'Privacy', 'Contact'].map(l => (
-              <Link key={l} href="#" style={{ color: t.footerText, textDecoration: 'none' }}>{l}</Link>
-            ))}
+        <footer style={{ padding: '24px 40px', borderTop: `1px solid ${t.footerBorder}` }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 10 }}>
+            <div>
+              <div style={{ fontSize: 13, color: t.footerText }}>© 2026 BuyIQ.app — Smart shopping, powered by data.</div>
+              <div style={{ fontSize: 11, color: t.footerText, marginTop: 4, opacity: 0.8 }}>
+                As an Amazon Associate I earn from qualifying purchases.
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+              {FOOTER_LINKS.map(({ label, href }) => (
+                <Link key={label} href={href} style={{ fontSize: 13, color: t.footerText, textDecoration: 'none' }}>
+                  {label}
+                </Link>
+              ))}
+            </div>
           </div>
         </footer>
 
