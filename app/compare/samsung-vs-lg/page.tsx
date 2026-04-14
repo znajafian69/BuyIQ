@@ -131,8 +131,8 @@ const OVERALL_VERDICT = `For most people, the Sony WF-1000XM5 wins. Its noise ca
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function ComparisonPage() {
-  const winner = OVERALL_WINNER === 'a' ? PRODUCT_A : PRODUCT_B
-  const loser = OVERALL_WINNER === 'a' ? PRODUCT_B : PRODUCT_A
+  const winner = (OVERALL_WINNER as string) === 'a' ? PRODUCT_A : PRODUCT_B
+const loser = (OVERALL_WINNER as string) === 'a' ? PRODUCT_B : PRODUCT_A
 
   return (
     <>
