@@ -120,14 +120,18 @@ export default function AirPodsPro3Page() {
             {/* ── PRODUCT HERO ── */}
             <div style={{ display: 'flex', gap: 24, marginBottom: 28, flexWrap: 'wrap' }}>
               <div style={{
-                width: 130, height: 130, flexShrink: 0,
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                borderRadius: 20, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 70
-              }}>
-                🎧
-              </div>
+  width: 130, height: 130, flexShrink: 0,
+  borderRadius: 20, overflow: 'hidden',
+  background: 'rgba(255,255,255,0.03)',
+  border: '1px solid rgba(255,255,255,0.07)',
+}}>
+  <img
+    src="https://m.media-amazon.com/images/I/61solmQSSlL._AC_SL1500_.jpg"
+    alt="Apple AirPods Pro 3"
+    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+  />
+</div>
+            
               <div style={{ flex: 1, minWidth: 200 }}>
                 <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
                   Apple · Wireless Earbuds · 2025
