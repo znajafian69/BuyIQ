@@ -117,7 +117,7 @@ export default function AirPodsPro3Page() {
         {/* ── NAV ── */}
         <nav style={{ position: 'sticky', top: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 32px', background: t.navBg, backdropFilter: 'blur(20px)', borderBottom: `1px solid ${t.border}` }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            <img src="/images/logo.png" alt="BuyIQ" style={{ width: 44, height: 44, objectFit: 'contain' }} />
+          <img src="/images/logo.png" alt="BuyIQ" style={{ width: 70, height: 70, objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </Link>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 10, padding: '5px 8px' }}>
             <span style={{ fontSize: 12, color: t.muted, marginRight: 4 }}>Theme:</span>
