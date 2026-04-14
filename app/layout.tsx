@@ -15,6 +15,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "BuyIQ — Smart Shopping",
   description: "Find the best products with AI-powered recommendations.",
+
+  // ✅ FIX duplicate issue (VERY IMPORTANT)
+  metadataBase: new URL("https://buyiq.app"),
+  alternates: {
+    canonical: "/",
+  },
+
+  // ✅ Google verification
   verification: {
     google: "dig2udVk_eoFJNby1sdYxHhdOTioZfQxTXteaUJ9Ufw",
   },
