@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" width="180" height="220">
+  <defs>
+    <linearGradient id="cartGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#e05a00"/>
+    </linearGradient>
+    <linearGradient id="brainL" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#f07010"/>
+    </linearGradient>
+    <linearGradient id="brainR" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a7fe8"/>
+      <stop offset="100%" stop-color="#00b8d9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Cart frame -->
+  <rect x="10" y="90" width="160" height="100" rx="18" fill="url(#cartGrad)"/>
+  <!-- Cart inner shading -->
+  <rect x="22" y="102" width="136" height="76" rx="10" fill="#1a0a00" opacity="0.2"/>
+  <!-- Cart lines -->
+  <line x1="22" y1="124" x2="158" y2="124" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  <line x1="22" y1="144" x2="158" y2="144" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <!-- Cart handle -->
+  <path d="M10 120 Q0 105 10 93" stroke="#f5a623" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- Wheels -->
+  <circle cx="55" cy="204" r="13" fill="#111" stroke="url(#cartGrad)" stroke-width="3.5"/>
+  <circle cx="55" cy="204" r="4.5" fill="#f5a623"/>
+  <circle cx="125" cy="204" r="13" fill="#111" stroke="url(#cartGrad)" stroke-width="3.5"/>
+  <circle cx="125" cy="204" r="4.5" fill="#f5a623"/>
+  <!-- Wheel spokes -->
+  <line x1="55" y1="195" x2="55" y2="213" stroke="#f5a623" stroke-width="1.5" opacity="0.5"/>
+  <line x1="46" y1="204" x2="64" y2="204" stroke="#f5a623" stroke-width="1.5" opacity="0.5"/>
+  <line x1="125" y1="195" x2="125" y2="213" stroke="#f5a623" stroke-width="1.5" opacity="0.5"/>
+  <line x1="116" y1="204" x2="134" y2="204" stroke="#f5a623" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Brain left lobe (orange) -->
+  <path d="M50 92 C38 92 28 84 26 72 C24 59 32 49 44 47 C46 37 54 31 64 31 C68 27 74 27 78 30 C80 25 82 22 90 22 L90 92 Z" fill="url(#brainL)"/>
+  <!-- Brain right lobe (blue) -->
+  <path d="M90 22 C98 22 100 25 102 30 C106 27 112 27 116 31 C126 31 134 37 136 47 C148 49 156 59 154 72 C152 84 142 92 130 92 L90 92 Z" fill="url(#brainR)"/>
+
+  <!-- Center divider -->
+  <line x1="90" y1="25" x2="90" y2="91" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Brain folds LEFT -->
+  <path d="M42 52 Q52 62 44 75 Q54 69 50 82" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M36 67 Q46 63 42 75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M62 35 Q58 47 64 57 Q56 61 62 71" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Brain folds RIGHT -->
+  <path d="M138 52 Q128 62 136 75 Q126 69 130 82" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M144 67 Q134 63 138 75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M118 35 Q122 47 116 57 Q124 61 118 71" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Neural dots LEFT -->
+  <circle cx="52" cy="59" r="3.5" fill="rgba(255,255,255,0.9)"/>
+  <circle cx="68" cy="75" r="3" fill="rgba(255,255,255,0.8)"/>
+  <circle cx="44" cy="79" r="2.5" fill="rgba(255,255,255,0.7)"/>
+  <circle cx="72" cy="47" r="2.5" fill="rgba(255,255,255,0.7)"/>
+  <line x1="52" y1="59" x2="68" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+  <line x1="68" y1="75" x2="44" y2="79" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <line x1="52" y1="59" x2="72" y2="47" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+
+  <!-- Neural dots RIGHT -->
+  <circle cx="128" cy="59" r="3.5" fill="rgba(255,255,255,0.9)"/>
+  <circle cx="112" cy="75" r="3" fill="rgba(255,255,255,0.8)"/>
+  <circle cx="136" cy="79" r="2.5" fill="rgba(255,255,255,0.7)"/>
+  <circle cx="108" cy="47" r="2.5" fill="rgba(255,255,255,0.7)"/>
+  <line x1="128" y1="59" x2="112" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+  <line x1="112" y1="75" x2="136" y2="79" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <line x1="128" y1="59" x2="108" y2="47" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+</svg>
