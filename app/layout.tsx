@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   title: "BuyIQ — Smart Shopping",
   description: "Find the best products with AI-powered recommendations.",
   verification: {
-    google: "google16a878363a8fa1da", // ✅ your correct code
+    google: "dig2udVk_eoFJNby1sdYxHhdOTioZfQxTXteaUJ9Ufw",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
