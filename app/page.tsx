@@ -5,51 +5,55 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 // ══════════════════════════════════════════════════════════════════
-// ✏️  FEATURED REVIEWS — add/remove products here
-//     Set featured: true on whichever product you want shown today
+// ✏️  ADD YOUR PRODUCTS HERE
+//     Set featured: true on whichever you want shown today
+//     Add more products by copying any block below
 // ══════════════════════════════════════════════════════════════════
-const FEATURED_REVIEWS = [
+const PRODUCTS = [
   {
     featured:    true,
     slug:        'airpods3',
+    reviewPage:  '/product/airpods3',
     image:       'https://m.media-amazon.com/images/I/61solmQSSlL._AC_SL1500_.jpg',
     name:        'Apple AirPods Pro 3',
     tagline:     'Live Translation, Heart Rate Sensor, FDA Hearing Aid. Is it worth $199?',
-    rating:      '★★★★½',
-    reviews:     '8,004 reviews',
+    rating:      4.5,
+    reviewCount: '8,004',
     score:       91,
-    price:       '$199.99',
+    price:       199.99,
     badge:       "Amazon's Choice",
   },
   {
     featured:    false,
     slug:        'airpods4',
+    reviewPage:  '/product/airpods4',
     image:       'https://m.media-amazon.com/images/I/61iBtxCUabL._AC_SL1500_.jpg',
     name:        'Apple AirPods 4 with ANC',
     tagline:     'First-ever ANC on standard AirPods. Is $155 a good deal?',
-    rating:      '★★★★½',
-    reviews:     '19,473 reviews',
+    rating:      4.6,
+    reviewCount: '19,473',
     score:       87,
-    price:       '$154.99',
+    price:       154.99,
     badge:       "Amazon's Choice",
   },
-  // ✏️ ADD MORE PRODUCTS HERE as you publish reviews:
+  // ✏️ ADD MORE PRODUCTS HERE — copy any block above and change the data
   // {
-  //   featured:  false,
-  //   slug:      'samsung-tv',
-  //   image:     'https://m.media-amazon.com/images/...',
-  //   name:      'Samsung 65" QLED TV',
-  //   tagline:   'Is this the best TV under $1000?',
-  //   rating:    '★★★★½',
-  //   reviews:   '12,400 reviews',
-  //   score:     93,
-  //   price:     '$899.99',
-  //   badge:     "Amazon's Choice",
+  //   featured:    false,
+  //   slug:        'samsung-tv',
+  //   reviewPage:  '/product/samsung-tv',
+  //   image:       'https://m.media-amazon.com/images/...',
+  //   name:        'Samsung 65" QLED TV',
+  //   tagline:     'Best TV under $1000? We analyzed 24,000 reviews.',
+  //   rating:      4.7,
+  //   reviewCount: '24,500',
+  //   score:       93,
+  //   price:       899.99,
+  //   badge:       "Amazon's Choice",
   // },
 ]
 
 // ══════════════════════════════════════════════════════════════════
-// ✏️  TRENDING SEARCHES — update these as trends change
+// ✏️  TRENDING SEARCHES
 // ══════════════════════════════════════════════════════════════════
 const TRENDING = [
   { label: 'Noise cancelling headphones', icon: '🎧', q: 'best noise cancelling headphones' },
@@ -65,7 +69,6 @@ const THEMES = [
     bg: `radial-gradient(ellipse 130% 45% at 50% -5%, rgba(190,90,8,0.55) 0%, transparent 52%),
          radial-gradient(ellipse 70% 30% at 50% 2%, rgba(255,150,30,0.28) 0%, transparent 42%),
          radial-gradient(ellipse 50% 25% at 15% 20%, rgba(120,45,5,0.30) 0%, transparent 50%),
-         radial-gradient(ellipse 45% 35% at 85% 12%, rgba(60,10,80,0.35) 0%, transparent 50%),
          linear-gradient(180deg, #080310 0%, #04060f 100%)`,
     bodyBg: '#04060f', surface: 'rgba(8,16,40,0.75)', border: 'rgba(255,255,255,0.09)',
     text: '#ffffff', muted: 'rgba(255,255,255,0.5)', subtle: 'rgba(255,255,255,0.06)',
@@ -96,13 +99,6 @@ const THEMES = [
   },
 ]
 
-// ── FOOTER LINKS ──────────────────────────────────────────────────
-const FOOTER_LINKS = [
-  { label: 'About',   href: '/about' },
-  { label: 'Privacy', href: '/privacy' },
-  { label: 'Contact', href: '/contact' },
-]
-
 // ── COMPONENT ─────────────────────────────────────────────────────
 export default function HomePage() {
   const [query, setQuery]     = useState('')
@@ -110,8 +106,8 @@ export default function HomePage() {
   const router = useRouter()
 
   const t        = THEMES.find(x => x.id === themeId) || THEMES[0]
-  const featured = FEATURED_REVIEWS.find(r => r.featured) || FEATURED_REVIEWS[0]
-  const others   = FEATURED_REVIEWS.filter(r => !r.featured)
+  const featured = PRODUCTS.find(p => p.featured) || PRODUCTS[0]
+  const others   = PRODUCTS.filter(p => !p.featured)
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -122,7 +118,6 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none', background: t.bg, transition: 'background 0.3s' }} />
 
       <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column', color: t.text, background: t.bodyBg, transition: 'all 0.3s', fontFamily: 'Open Sans, sans-serif' }}>
@@ -181,7 +176,7 @@ export default function HomePage() {
               ⚡ Today&apos;s Featured Review
             </p>
 
-            <Link href={`/product/${featured.slug}`} style={{ textDecoration: 'none' }}>
+            <Link href={featured.reviewPage} style={{ textDecoration: 'none' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 20, background: t.surface, border: '1px solid rgba(245,166,35,0.25)', borderRadius: 18, padding: '22px 28px', cursor: 'pointer', textAlign: 'left' as const }}>
                 <div style={{ width: 80, height: 80, flexShrink: 0, borderRadius: 14, overflow: 'hidden', background: t.inputBg, border: `1px solid ${t.border}` }}>
                   <img src={featured.image} alt={featured.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
@@ -195,31 +190,31 @@ export default function HomePage() {
                   <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 20, fontWeight: 700, color: t.text, marginBottom: 4 }}>{featured.name}</div>
                   <div style={{ fontSize: 13, color: t.muted, marginBottom: 10 }}>{featured.tagline}</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-                    <span style={{ color: '#f5a623', fontSize: 13 }}>{featured.rating}</span>
-                    <span style={{ fontSize: 12, color: t.muted }}>{featured.reviews}</span>
+                    <span style={{ color: '#f5a623', fontSize: 13 }}>{'★'.repeat(Math.floor(featured.rating))}½</span>
+                    <span style={{ fontSize: 12, color: t.muted }}>{featured.reviewCount} reviews</span>
                     <span style={{ background: 'rgba(245,166,35,0.15)', border: '1px solid rgba(245,166,35,0.3)', color: '#f5a623', fontSize: 12, fontWeight: 700, padding: '2px 10px', borderRadius: 6 }}>
                       BuyIQ Score: {featured.score}
                     </span>
-                    <span style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 16, fontWeight: 700, color: t.text }}>{featured.price}</span>
+                    <span style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 16, fontWeight: 700, color: t.text }}>${featured.price}</span>
                   </div>
                 </div>
                 <div style={{ color: t.muted, fontSize: 22, flexShrink: 0 }}>→</div>
               </div>
             </Link>
 
-            {/* Other reviews */}
+            {/* Other reviews strip */}
             {others.length > 0 && (
               <div style={{ marginTop: 16 }}>
                 <p style={{ fontSize: 12, color: t.muted, marginBottom: 10, textAlign: 'left' as const }}>Also reviewed:</p>
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                   {others.map(r => (
-                    <Link key={r.slug} href={`/product/${r.slug}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, background: t.surface, border: `1px solid ${t.border}`, borderRadius: 12, padding: '12px 16px', flex: 1, minWidth: 200 }}>
+                    <Link key={r.slug} href={r.reviewPage} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, background: t.surface, border: `1px solid ${t.border}`, borderRadius: 12, padding: '12px 16px', flex: 1, minWidth: 200 }}>
                       <div style={{ width: 44, height: 44, borderRadius: 10, overflow: 'hidden', background: t.inputBg, border: `1px solid ${t.border}`, flexShrink: 0 }}>
                         <img src={r.image} alt={r.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </div>
                       <div>
                         <div style={{ fontSize: 13, fontWeight: 600, color: t.text }}>{r.name}</div>
-                        <div style={{ fontSize: 12, color: t.muted }}>{r.price} · Score {r.score}</div>
+                        <div style={{ fontSize: 12, color: t.muted }}>${r.price} · Score {r.score}</div>
                       </div>
                     </Link>
                   ))}
@@ -229,7 +224,7 @@ export default function HomePage() {
 
             {/* Comparison link */}
             <div style={{ marginTop: 16 }}>
-              <Link href="/compare/airpods-pro-3-vs-airpods-4" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 12, padding: '14px 20px', textDecoration: 'none', color: t.muted, fontSize: 14 }}>
+              <Link href="/compare/airpods-pro-3-vs-airpods-4" style={{ display: 'flex', alignItems: 'center', gap: 8, background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 12, padding: '14px 20px', textDecoration: 'none', color: t.muted, fontSize: 14 }}>
                 ⚔️ <span>Compare AirPods Pro 3 vs AirPods 4</span>
                 <span style={{ marginLeft: 'auto' }}>→</span>
               </Link>
@@ -240,18 +235,14 @@ export default function HomePage() {
 
         {/* ── FOOTER ── */}
         <footer style={{ padding: '24px 40px', borderTop: `1px solid ${t.footerBorder}` }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 10 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
             <div>
               <div style={{ fontSize: 13, color: t.footerText }}>© 2026 BuyIQ.app — Smart shopping, powered by data.</div>
-              <div style={{ fontSize: 11, color: t.footerText, marginTop: 4, opacity: 0.8 }}>
-                As an Amazon Associate I earn from qualifying purchases.
-              </div>
+              <div style={{ fontSize: 11, color: t.footerText, marginTop: 4, opacity: 0.8 }}>As an Amazon Associate I earn from qualifying purchases.</div>
             </div>
             <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
-              {FOOTER_LINKS.map(({ label, href }) => (
-                <Link key={label} href={href} style={{ fontSize: 13, color: t.footerText, textDecoration: 'none' }}>
-                  {label}
-                </Link>
+              {[['About', '/about'], ['Privacy', '/privacy'], ['Contact', '/contact']].map(([l, h]) => (
+                <Link key={l} href={h} style={{ fontSize: 13, color: t.footerText, textDecoration: 'none' }}>{l}</Link>
               ))}
             </div>
           </div>
