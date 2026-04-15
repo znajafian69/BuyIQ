@@ -507,6 +507,23 @@ export default function AirPods4Page() {
           </div>
 
         </div>
+        {/* ── FOOTER ── */}
+        <footer style={{ borderTop: `1px solid ${t.subtle}`, padding: '20px 32px' }}>
+          <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+            <div>
+              <div style={{ fontSize: 13, color: t.muted }}>© 2026 BuyIQ.app — Smart shopping, powered by data.</div>
+              <div style={{ fontSize: 11, color: t.muted, marginTop: 4, opacity: 0.8 }}>As an Amazon Associate I earn from qualifying purchases.</div>
+            </div>
+            <div style={{ display: 'flex', gap: 20 }}>
+              {[['About', '/about'], ['Privacy', '/privacy'], ['Contact', '/contact']].map(([l, h]) => (
+                <Link key={l} href={h} style={{ fontSize: 13, color: t.muted, textDecoration: 'none' }}>{l}</Link>
+              ))}
+            </div>
+          </div>
+        </footer>
+
+
+
       </div>
     </>
   )

@@ -7,16 +7,15 @@ import { useState } from 'react'
 // ✏️  EDIT COMPARISON DATA HERE
 // ══════════════════════════════════════════════════════════════════
 const COMPARE = {
-  // Product A — Winner
   a: {
-    name:     'AirPods Pro 3',
-    price:    '$199.99',
-    score:    91,
-    reviews:  '8,004',
-    rating:   4.5,
-    image:    'https://m.media-amazon.com/images/I/61solmQSSlL._AC_SL1500_.jpg',
-    url:      'https://www.amazon.com/dp/B0FQFB8FMG?tag=buyiq-20',
-    winner:   true,
+    name:    'AirPods Pro 3',
+    price:   '$199.99',
+    score:   91,
+    reviews: '8,004',
+    rating:  4.5,
+    image:   'https://m.media-amazon.com/images/I/61solmQSSlL._AC_SL1500_.jpg',
+    url:     'https://www.amazon.com/dp/B0FQFB8FMG?tag=buyiq-20',
+    winner:  true,
     buyIf: [
       'You want Live Translation for travel',
       'You want Heart Rate without Apple Watch',
@@ -25,17 +24,15 @@ const COMPARE = {
       'You prefer silicone tips for better seal',
     ],
   },
-
-  // Product B
   b: {
-    name:     'AirPods 4 (ANC)',
-    price:    '$154.99',
-    score:    87,
-    reviews:  '19,473',
-    rating:   4.6,
-    image:    'https://m.media-amazon.com/images/I/61iBtxCUabL._AC_SL1500_.jpg',
-    url:      'https://www.amazon.com/dp/B0DGJ7HYG1?tag=buyiq-20',
-    winner:   false,
+    name:    'AirPods 4 (ANC)',
+    price:   '$154.99',
+    score:   87,
+    reviews: '19,473',
+    rating:  4.6,
+    image:   'https://m.media-amazon.com/images/I/61iBtxCUabL._AC_SL1500_.jpg',
+    url:     'https://www.amazon.com/dp/B0DGJ7HYG1?tag=buyiq-20',
+    winner:  false,
     buyIf: [
       'You want to save $45 vs Pro 3',
       'You prefer open-ear fit (no silicone tips)',
@@ -44,52 +41,45 @@ const COMPARE = {
       'You can wait for the price to drop again',
     ],
   },
-
   verdict: 'The AirPods Pro 3 wins overall — but only if you need its exclusive features. Live Translation, Heart Rate Sensor, and the FDA Hearing Aid are genuinely unique. If those do not matter to you, the AirPods 4 delivers 90% of the experience for $45 less.',
-
   sections: [
     {
-      title: '🔊 Sound Quality',
-      scoreA: 92, scoreB: 87,
+      title: '🔊 Sound Quality', scoreA: 92, scoreB: 87,
       rows: [
-        { label: 'Chip',          a: 'Apple H2',             b: 'Apple H2',             win: 'tie' },
-        { label: 'Sound Profile', a: 'High-Fidelity, refined', b: 'High-Fidelity',       win: 'a' },
-        { label: 'Spatial Audio', a: 'Yes + head tracking',  b: 'Yes + head tracking',  win: 'tie' },
-        { label: 'Overall Audio', a: 'Best on AirPods',      b: 'Very good',            win: 'a' },
+        { label: 'Chip',          a: 'Apple H2',              b: 'Apple H2',             win: 'tie' },
+        { label: 'Sound Profile', a: 'High-Fidelity, refined', b: 'High-Fidelity',        win: 'a' },
+        { label: 'Spatial Audio', a: 'Yes + head tracking',   b: 'Yes + head tracking',  win: 'tie' },
+        { label: 'Overall Audio', a: 'Best on AirPods',       b: 'Very good',            win: 'a' },
       ],
     },
     {
-      title: '🔇 Noise Cancellation',
-      scoreA: 95, scoreB: 84,
+      title: '🔇 Noise Cancellation', scoreA: 95, scoreB: 84,
       rows: [
-        { label: 'ANC',           a: 'Yes — best in class',   b: 'Yes — good',           win: 'a' },
-        { label: 'Transparency',  a: 'Adaptive — best ever',  b: 'Adaptive — very good', win: 'a' },
-        { label: 'Ear seal',      a: 'Silicone tips (better)', b: 'Open-ear (no tips)',  win: 'a' },
-        { label: 'Wind noise',    a: 'Excellent',             b: 'Good',                 win: 'a' },
+        { label: 'ANC',          a: 'Yes — best in class',    b: 'Yes — good',           win: 'a' },
+        { label: 'Transparency', a: 'Adaptive — best ever',   b: 'Adaptive — very good', win: 'a' },
+        { label: 'Ear seal',     a: 'Silicone tips (better)', b: 'Open-ear (no tips)',   win: 'a' },
+        { label: 'Wind noise',   a: 'Excellent',              b: 'Good',                 win: 'a' },
       ],
     },
     {
-      title: '✨ Exclusive Features',
-      scoreA: 99, scoreB: 40,
+      title: '✨ Exclusive Features', scoreA: 99, scoreB: 40,
       rows: [
-        { label: 'Live Translation',  a: 'Yes — real time', b: 'No', win: 'a' },
-        { label: 'Heart Rate Sensor', a: 'Yes — built-in',  b: 'No', win: 'a' },
+        { label: 'Live Translation',  a: 'Yes — real time',  b: 'No', win: 'a' },
+        { label: 'Heart Rate Sensor', a: 'Yes — built-in',   b: 'No', win: 'a' },
         { label: 'Hearing Aid (FDA)', a: 'Yes — first ever', b: 'No', win: 'a' },
-        { label: 'Health tracking',   a: 'Yes',             b: 'No', win: 'a' },
+        { label: 'Health tracking',   a: 'Yes',              b: 'No', win: 'a' },
       ],
     },
     {
-      title: '🔋 Battery and Charging',
-      scoreA: 82, scoreB: 82,
+      title: '🔋 Battery and Charging', scoreA: 82, scoreB: 82,
       rows: [
-        { label: 'Wireless charging', a: 'USB-C + MagSafe',  b: 'USB-C + Wireless', win: 'tie' },
-        { label: 'Quick charge',      a: 'Yes',              b: 'Yes',              win: 'tie' },
-        { label: 'Battery life',      a: 'Good',             b: 'Good',             win: 'tie' },
+        { label: 'Wireless charging', a: 'USB-C + MagSafe', b: 'USB-C + Wireless', win: 'tie' },
+        { label: 'Quick charge',      a: 'Yes',             b: 'Yes',              win: 'tie' },
+        { label: 'Battery life',      a: 'Good',            b: 'Good',             win: 'tie' },
       ],
     },
     {
-      title: '😌 Comfort and Design',
-      scoreA: 88, scoreB: 88,
+      title: '😌 Comfort and Design', scoreA: 88, scoreB: 88,
       rows: [
         { label: 'Fit style',        a: 'Silicone tips (in-ear)', b: 'Open-ear (no tips)', win: 'tie' },
         { label: 'Water resistance', a: 'IP54',                   b: 'IP54',               win: 'tie' },
@@ -97,12 +87,11 @@ const COMPARE = {
       ],
     },
     {
-      title: '💰 Value and Price',
-      scoreA: 82, scoreB: 92,
+      title: '💰 Value and Price', scoreA: 82, scoreB: 92,
       rows: [
-        { label: 'Current price',  a: '$199.99', b: '$154.99',  win: 'b' },
-        { label: 'All-time low',   a: '$169',    b: '$108',     win: 'b' },
-        { label: 'Value for money', a: 'Good',   b: 'Excellent', win: 'b' },
+        { label: 'Current price',   a: '$199.99', b: '$154.99',   win: 'b' },
+        { label: 'All-time low',    a: '$169',    b: '$108',      win: 'b' },
+        { label: 'Value for money', a: 'Good',    b: 'Excellent', win: 'b' },
       ],
     },
   ],
@@ -156,7 +145,6 @@ export default function CompareAirPodsPage() {
 
   return (
     <>
-      {/* Google structured data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -192,9 +180,10 @@ export default function CompareAirPodsPage() {
           </div>
         </nav>
 
-        <div style={{ maxWidth: 960, margin: '0 auto', padding: '44px 24px 100px' }}>
+        {/* ── MAIN CONTENT ── */}
+        <div style={{ maxWidth: 960, margin: '0 auto', padding: '44px 24px 60px' }}>
 
-          {/* ── HEADER ── */}
+          {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(245,166,35,0.1)', border: '1px solid rgba(245,166,35,0.25)', borderRadius: 6, padding: '4px 14px', fontSize: 12, color: '#f5a623', fontWeight: 600, marginBottom: 14, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>
               ⚔️ BuyIQ Head-to-Head Comparison
@@ -206,17 +195,15 @@ export default function CompareAirPodsPage() {
             <p style={{ fontSize: 14, color: t.muted }}>Based on {a.reviews} + {b.reviews} verified Amazon reviews</p>
           </div>
 
-          {/* ── HERO CARDS ── */}
+          {/* Hero cards */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: 16, alignItems: 'center', marginBottom: 32 }}>
 
             {/* Product A */}
             <div style={{ background: a.winner ? (themeId === 'light' ? 'rgba(245,166,35,0.06)' : 'rgba(245,166,35,0.07)') : t.surface, border: a.winner ? '2px solid rgba(245,166,35,0.4)' : `1px solid ${t.border}`, borderRadius: 18, padding: 28, textAlign: 'center' as const, boxShadow: t.cardShadow }}>
-              {a.winner && (
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'rgba(245,166,35,0.15)', border: '1px solid rgba(245,166,35,0.3)', borderRadius: 6, padding: '3px 10px', fontSize: 11, color: '#f5a623', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.07em', marginBottom: 12 }}>
-                  🏆 BuyIQ Pick
-                </div>
-              )}
-              {!a.winner && <div style={{ height: 26 }} />}
+              {a.winner
+                ? <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'rgba(245,166,35,0.15)', border: '1px solid rgba(245,166,35,0.3)', borderRadius: 6, padding: '3px 10px', fontSize: 11, color: '#f5a623', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.07em', marginBottom: 12 }}>🏆 BuyIQ Pick</div>
+                : <div style={{ height: 26 }} />
+              }
               <div style={{ width: 100, height: 100, margin: '0 auto 14px', borderRadius: 16, overflow: 'hidden', background: t.inputBg, border: `1px solid ${t.border}` }}>
                 <img src={a.image} alt={a.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
@@ -236,12 +223,10 @@ export default function CompareAirPodsPage() {
 
             {/* Product B */}
             <div style={{ background: b.winner ? (themeId === 'light' ? 'rgba(245,166,35,0.06)' : 'rgba(245,166,35,0.07)') : t.surface, border: b.winner ? '2px solid rgba(245,166,35,0.4)' : `1px solid ${t.border}`, borderRadius: 18, padding: 28, textAlign: 'center' as const, boxShadow: t.cardShadow }}>
-              {b.winner && (
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'rgba(245,166,35,0.15)', border: '1px solid rgba(245,166,35,0.3)', borderRadius: 6, padding: '3px 10px', fontSize: 11, color: '#f5a623', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.07em', marginBottom: 12 }}>
-                  🏆 BuyIQ Pick
-                </div>
-              )}
-              {!b.winner && <div style={{ height: 26 }} />}
+              {b.winner
+                ? <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'rgba(245,166,35,0.15)', border: '1px solid rgba(245,166,35,0.3)', borderRadius: 6, padding: '3px 10px', fontSize: 11, color: '#f5a623', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.07em', marginBottom: 12 }}>🏆 BuyIQ Pick</div>
+                : <div style={{ height: 26 }} />
+              }
               <div style={{ width: 100, height: 100, margin: '0 auto 14px', borderRadius: 16, overflow: 'hidden', background: t.inputBg, border: `1px solid ${t.border}` }}>
                 <img src={b.image} alt={b.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
@@ -257,7 +242,7 @@ export default function CompareAirPodsPage() {
             </div>
           </div>
 
-          {/* ── VERDICT BANNER ── */}
+          {/* Verdict */}
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, padding: '20px 24px', marginBottom: 40, background: 'rgba(245,166,35,0.07)', border: '1px solid rgba(245,166,35,0.18)', borderRadius: 14 }}>
             <div style={{ fontSize: 28, flexShrink: 0 }}>🧠</div>
             <div>
@@ -268,7 +253,7 @@ export default function CompareAirPodsPage() {
             </div>
           </div>
 
-          {/* ── COMPARISON SECTIONS ── */}
+          {/* Comparison sections */}
           {sections.map((section) => (
             <div key={section.title} style={{ marginBottom: 32 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
@@ -277,15 +262,11 @@ export default function CompareAirPodsPage() {
                 </span>
                 <div style={{ flex: 1, height: 1, background: t.subtle }} />
               </div>
-
-              {/* Column headers */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', background: t.headerBg, border: `1px solid ${t.border}`, borderRadius: 10, marginBottom: 6, overflow: 'hidden' }}>
                 <div style={{ padding: '10px 16px', fontSize: 12, fontWeight: 700, color: t.muted, textTransform: 'uppercase' as const }}>Category</div>
                 <div style={{ padding: '10px 16px', fontSize: 12, fontWeight: 700, color: '#f5a623', textTransform: 'uppercase' as const, borderLeft: `1px solid ${t.subtle}` }}>{a.name}</div>
                 <div style={{ padding: '10px 16px', fontSize: 12, fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase' as const, borderLeft: `1px solid ${t.subtle}` }}>{b.name}</div>
               </div>
-
-              {/* Rows */}
               {section.rows.map((row) => (
                 <div key={row.label} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', background: t.rowBg, border: `1px solid ${t.border}`, borderRadius: 10, marginBottom: 5, overflow: 'hidden' }}>
                   <div style={{ padding: '12px 16px', fontSize: 13, color: t.muted }}>{row.label}</div>
@@ -299,8 +280,6 @@ export default function CompareAirPodsPage() {
                   </div>
                 </div>
               ))}
-
-              {/* Score bars */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', background: t.sectionBg, border: `1px solid ${t.subtle}`, borderRadius: 10, padding: '14px 16px', marginTop: 4 }}>
                 <div style={{ fontSize: 12, color: t.muted, display: 'flex', alignItems: 'center' }}>Section Score</div>
                 <div style={{ paddingLeft: 8 }}>
@@ -323,7 +302,7 @@ export default function CompareAirPodsPage() {
             </div>
           ))}
 
-          {/* ── QUICK PICK BOXES ── */}
+          {/* Quick pick boxes */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 40 }}>
             <div style={{ background: t.surface, border: '1px solid rgba(245,166,35,0.25)', borderRadius: 14, padding: 22, boxShadow: t.cardShadow }}>
               <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 16, fontWeight: 700, color: '#f5a623', marginBottom: 14 }}>
@@ -338,7 +317,6 @@ export default function CompareAirPodsPage() {
                 Buy {a.name} — {a.price} 🛒
               </a>
             </div>
-
             <div style={{ background: t.surface, border: '1px solid rgba(167,139,250,0.25)', borderRadius: 14, padding: 22, boxShadow: t.cardShadow }}>
               <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 16, fontWeight: 700, color: '#a78bfa', marginBottom: 14 }}>
                 💜 Choose {b.name} if…
@@ -354,7 +332,7 @@ export default function CompareAirPodsPage() {
             </div>
           </div>
 
-          {/* ── RELATED ── */}
+          {/* Related */}
           <div style={{ marginTop: 48, paddingTop: 36, borderTop: `1px solid ${t.subtle}` }}>
             <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: 18, fontWeight: 700, marginBottom: 16, color: t.text }}>
               Read Full Reviews
@@ -370,6 +348,22 @@ export default function CompareAirPodsPage() {
           </div>
 
         </div>
+
+        {/* ── FOOTER ── */}
+        <footer style={{ borderTop: `1px solid ${t.subtle}`, padding: '20px 32px' }}>
+          <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+            <div>
+              <div style={{ fontSize: 13, color: t.muted }}>© 2026 BuyIQ.app — Smart shopping, powered by data.</div>
+              <div style={{ fontSize: 11, color: t.muted, marginTop: 4, opacity: 0.8 }}>As an Amazon Associate I earn from qualifying purchases.</div>
+            </div>
+            <div style={{ display: 'flex', gap: 20 }}>
+              {[['About', '/about'], ['Privacy', '/privacy'], ['Contact', '/contact']].map(([l, h]) => (
+                <Link key={l} href={h} style={{ fontSize: 13, color: t.muted, textDecoration: 'none' }}>{l}</Link>
+              ))}
+            </div>
+          </div>
+        </footer>
+
       </div>
     </>
   )
