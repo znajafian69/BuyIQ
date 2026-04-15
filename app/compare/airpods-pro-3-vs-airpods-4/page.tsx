@@ -128,12 +128,12 @@ const THEMES = [
     sectionBg: 'rgba(255,255,255,0.03)', cardShadow: 'none',
   },
   {
-    id: 'black', label: '🖤', title: 'Black',
-    bg: '#000000', bodyBg: '#000000', surface: '#111111', border: 'rgba(255,255,255,0.08)',
-    text: '#ffffff', muted: 'rgba(255,255,255,0.45)', subtle: 'rgba(255,255,255,0.06)',
-    navBg: 'rgba(0,0,0,0.95)', inputBg: 'rgba(255,255,255,0.04)',
-    rowBg: '#0a0a0a', headerBg: '#0d0d0d',
-    sectionBg: '#080808', cardShadow: 'none',
+    id: 'black', label: '🌸', title: 'Pink',
+    bg: 'linear-gradient(180deg, #1a0010 0%, #0d0008 100%)',
+    bodyBg: '#0d0008', surface: '#1a0010', border: 'rgba(255,100,150,0.15)',
+    text: '#ffffff', muted: 'rgba(255,255,255,0.45)', subtle: 'rgba(255,100,150,0.1)',
+    navBg: 'rgba(13,0,8,0.95)', inputBg: 'rgba(255,100,150,0.06)',
+    footerBorder: 'rgba(255,100,150,0.1)', footerText: 'rgba(255,255,255,0.25)',
   },
 ]
 

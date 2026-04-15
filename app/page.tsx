@@ -91,11 +91,12 @@ const THEMES = [
     footerBorder: 'rgba(255,255,255,0.07)', footerText: 'rgba(232,240,254,0.3)',
   },
   {
-    id: 'black', label: '🖤', title: 'Black',
-    bg: '#000000', bodyBg: '#000000', surface: '#111111', border: 'rgba(255,255,255,0.08)',
-    text: '#ffffff', muted: 'rgba(255,255,255,0.45)', subtle: 'rgba(255,255,255,0.06)',
-    navBg: 'transparent', inputBg: 'rgba(255,255,255,0.04)',
-    footerBorder: 'rgba(255,255,255,0.07)', footerText: 'rgba(255,255,255,0.25)',
+    id: 'black', label: '🌸', title: 'Pink',
+    bg: 'linear-gradient(180deg, #1a0010 0%, #0d0008 100%)',
+    bodyBg: '#0d0008', surface: '#1a0010', border: 'rgba(255,100,150,0.15)',
+    text: '#ffffff', muted: 'rgba(255,255,255,0.45)', subtle: 'rgba(255,100,150,0.1)',
+    navBg: 'rgba(13,0,8,0.95)', inputBg: 'rgba(255,100,150,0.06)',
+    footerBorder: 'rgba(255,100,150,0.1)', footerText: 'rgba(255,255,255,0.25)',
   },
 ]
 
