@@ -129,11 +129,11 @@ const THEMES = [
   },
   {
     id: 'black', label: '🌸', title: 'Pink',
-    bg: 'linear-gradient(180deg, #1a0010 0%, #0d0008 100%)',
-    bodyBg: '#0d0008', surface: '#1a0010', border: 'rgba(255,100,150,0.15)',
-    text: '#ffffff', muted: 'rgba(255,255,255,0.45)', subtle: 'rgba(255,100,150,0.1)',
-    navBg: 'rgba(13,0,8,0.95)', inputBg: 'rgba(255,100,150,0.06)',
-    footerBorder: 'rgba(255,100,150,0.1)', footerText: 'rgba(255,255,255,0.25)',
+    bg: 'linear-gradient(180deg, #fff0f5 0%, #ffe4ef 100%)',
+    bodyBg: '#fff0f5', surface: '#ffffff', border: 'rgba(255,100,150,0.15)',
+    text: '#3d0020', muted: 'rgba(61,0,32,0.5)', subtle: 'rgba(255,100,150,0.1)',
+    navBg: 'rgba(255,240,245,0.92)', inputBg: 'rgba(255,100,150,0.05)',
+    footerBorder: 'rgba(255,100,150,0.15)', footerText: 'rgba(61,0,32,0.4)',
   },
 ]
 

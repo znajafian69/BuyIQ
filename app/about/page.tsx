@@ -7,7 +7,14 @@ const THEMES = [
   { id: 'dark', label: '🌙', title: 'Dark', bg: `radial-gradient(ellipse 130% 45% at 50% -5%, rgba(190,90,8,0.55) 0%, transparent 52%), linear-gradient(180deg, #080310 0%, #04060f 100%)`, bodyBg: '#04060f', surface: 'rgba(8,16,40,0.85)', border: 'rgba(255,255,255,0.09)', text: '#ffffff', muted: 'rgba(255,255,255,0.5)', subtle: 'rgba(255,255,255,0.06)', navBg: 'rgba(4,6,15,0.85)', inputBg: 'rgba(255,255,255,0.04)' },
   { id: 'light', label: '☀️', title: 'Light', bg: '#f5f5f7', bodyBg: '#f5f5f7', surface: '#ffffff', border: 'rgba(0,0,0,0.08)', text: '#1a1a1a', muted: 'rgba(0,0,0,0.5)', subtle: 'rgba(0,0,0,0.06)', navBg: 'rgba(255,255,255,0.92)', inputBg: 'rgba(0,0,0,0.03)' },
   { id: 'navy', label: '🌊', title: 'Navy', bg: 'linear-gradient(180deg, #0a1628 0%, #0d1f3c 100%)', bodyBg: '#0d1f3c', surface: 'rgba(255,255,255,0.06)', border: 'rgba(255,255,255,0.1)', text: '#e8f0fe', muted: 'rgba(232,240,254,0.55)', subtle: 'rgba(255,255,255,0.07)', navBg: 'rgba(10,22,40,0.9)', inputBg: 'rgba(255,255,255,0.04)' },
-  { id: 'black', label: '🖤', title: 'Black', bg: '#000000', bodyBg: '#000000', surface: '#111111', border: 'rgba(255,255,255,0.08)', text: '#ffffff', muted: 'rgba(255,255,255,0.45)', subtle: 'rgba(255,255,255,0.06)', navBg: 'rgba(0,0,0,0.95)', inputBg: 'rgba(255,255,255,0.04)' },
+  {
+  id: 'black', label: '🌸', title: 'Pink',
+  bg: 'linear-gradient(180deg, #fff0f5 0%, #ffe4ef 100%)',
+  bodyBg: '#fff0f5', surface: '#ffffff', border: 'rgba(255,100,150,0.15)',
+  text: '#3d0020', muted: 'rgba(61,0,32,0.5)', subtle: 'rgba(255,100,150,0.1)',
+  navBg: 'rgba(255,240,245,0.92)', inputBg: 'rgba(255,100,150,0.05)',
+  footerBorder: 'rgba(255,100,150,0.15)', footerText: 'rgba(61,0,32,0.4)',
+  },
 ]
 
 export default function AboutPage() {
